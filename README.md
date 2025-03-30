@@ -23,6 +23,32 @@ pip install pandas numpy scikit-learn
    - Train the SVD model.
    - Generate symptom recommendations.
 
+## Example API Request
+
+```json
+{
+    "gender": "male",
+    "age": 28,
+    "summary": {
+        "no_symptoms": [],
+        "idk_symptoms": [],
+        "yes_symptoms": [
+            {"text": "เสมหะ", "answers": ["ลักษณะ เสมหะเปลี่ยนสีเหลือง/เขียว"]},
+            {"text": "ไอ", "answers": ["ระยะเวลา ไม่เกิน 1 สัปดาห์ (ไม่เกิน 7 วัน)"]}
+        ]
+    },
+    "search_term": ["มีเสมหะ", "ไอ"]
+}
+```
+
+## Example API Response
+
+```json
+{
+    "recommended_symptoms": ["symptoms_ไข้", "symptoms_เจ็บคอ"]
+}
+```
+
 ## Notes
 - The model is trained separately, so ensure you have preprocessed data before running inference.
 - The notebook contains data exploration steps to understand the dataset.
@@ -31,4 +57,6 @@ pip install pandas numpy scikit-learn
 - Enhance model performance with hyperparameter tuning.
 - Implement a user interface for easier interaction.
 - Expand dataset for better generalization.
+
+
 
